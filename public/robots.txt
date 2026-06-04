@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /studio-desk-7q4
+Disallow: /api/

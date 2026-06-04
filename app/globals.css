@@ -1,0 +1,327 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --green: #1dff3f;
+  --green-soft: rgba(29, 255, 63, 0.14);
+  --paper: #f3ead7;
+  --ink: #050605;
+  --cream: #f4ead3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #050605;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(29, 255, 63, 0.095), transparent 25rem),
+    linear-gradient(120deg, #030403 0%, #080a08 48%, #030403 100%);
+  color: white;
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(29, 255, 63, 0.25);
+}
+
+.display-font {
+  font-family: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.luxury-font {
+  font-family: "Cinzel Decorative", "Cormorant Garamond", serif;
+}
+
+.editorial-font {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.vertical-word {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.carbon-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(29,255,63,0.05), transparent 24rem);
+  background-size: 54px 54px, 54px 54px, 100% 100%;
+  mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 100%);
+}
+
+.noise-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 0 1px, transparent 1px),
+    radial-gradient(circle at 80% 60%, rgba(255,255,255,0.08) 0 1px, transparent 1px);
+  background-size: 42px 42px, 68px 68px;
+  mix-blend-mode: overlay;
+}
+
+.glass-black {
+  border: 1px solid rgba(255,255,255,0.12);
+  background: linear-gradient(135deg, rgba(255,255,255,0.09), rgba(255,255,255,0.025));
+  box-shadow: 0 24px 80px rgba(0,0,0,0.38);
+  backdrop-filter: blur(18px);
+}
+
+.green-glow {
+  box-shadow:
+    0 0 0 1px rgba(29,255,63,0.28),
+    0 0 36px rgba(29,255,63,0.16),
+    inset 0 0 24px rgba(29,255,63,0.07);
+}
+
+.perspective-stage {
+  perspective: 1300px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.paper-lines {
+  background:
+    linear-gradient(rgba(4, 6, 5, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(4, 6, 5, 0.055) 1px, transparent 1px),
+    var(--paper);
+  background-size: 100% 28px, 28px 100%, 100% 100%;
+}
+
+.input-dark {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.045);
+  padding: 0.95rem 1rem;
+  color: white;
+  outline: none;
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+.input-dark::placeholder {
+  color: rgba(255,255,255,0.32);
+}
+
+.input-dark:focus {
+  border-color: rgba(29,255,63,0.75);
+  box-shadow: 0 0 0 3px rgba(29,255,63,0.12);
+}
+
+select.input-dark,
+select.input-dark option {
+  background: #090d09;
+  color: white;
+}
+
+@keyframes floatBook {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotateX(58deg) rotateZ(-24deg);
+  }
+  50% {
+    transform: translate3d(0, -16px, 0) rotateX(58deg) rotateZ(-20deg);
+  }
+}
+
+@keyframes spinDisc {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orderFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes orderConsoleIn {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.94);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(1.015);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes orderChipFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) rotate(-8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--r));
+  }
+}
+
+.book-float {
+  animation: floatBook 7s ease-in-out infinite;
+}
+
+.spin-disc {
+  animation: spinDisc 18s linear infinite;
+}
+
+.order-transition-overlay {
+  animation: orderFade 0.28s ease-out both;
+}
+
+.order-transition-card {
+  animation: orderConsoleIn 0.58s cubic-bezier(.2,.9,.2,1) both;
+}
+
+.order-chip {
+  animation: orderChipFloat 0.55s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-float,
+  .spin-disc,
+  .order-transition-overlay,
+  .order-transition-card,
+  .order-chip {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+@keyframes orderProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.order-progress {
+  transform-origin: left;
+  animation: orderProgress 0.62s ease-out both;
+}
+/* ===========================
+   MOBILE EXCLUSIVE FIXES
+   =========================== */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  body {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(29, 255, 63, 0.13), transparent 18rem),
+      linear-gradient(180deg, #030403 0%, #070907 45%, #020302 100%);
+  }
+
+  section {
+    overflow-x: hidden;
+  }
+
+  .carbon-grid {
+    background-size: 34px 34px, 34px 34px, 100% 100%;
+    opacity: 0.55;
+  }
+
+  .glass-black {
+    border-radius: 22px;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
+  }
+
+  .luxury-font {
+    letter-spacing: -0.04em;
+  }
+
+  .display-font {
+    letter-spacing: 0.01em;
+  }
+
+  /* Kill desktop-sized 3D overflow on mobile */
+  .perspective-stage {
+    perspective: none;
+  }
+
+  .book-float {
+    animation: none;
+    transform: none !important;
+  }
+
+  .preserve-3d {
+    transform-style: flat;
+  }
+
+  .vertical-word {
+    writing-mode: horizontal-tb;
+  }
+
+  /* Make all huge text safer on phone */
+  h1,
+  h2 {
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* Forms should feel like mobile app */
+  .input-dark {
+    min-height: 52px;
+    border-radius: 14px;
+    font-size: 16px;
+    padding: 1rem;
+  }
+
+  textarea.input-dark {
+    min-height: 120px;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Better mobile tap buttons */
+  button,
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
+  /* Hide extra cinematic noise that makes mobile heavy */
+  .noise-layer {
+    opacity: 0.08;
+  }
+}
